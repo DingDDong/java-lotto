@@ -8,5 +8,6 @@ public class LottoController {
     OutputView outputView = new OutputView();
     public void play(){
         int money = inputView.inputMoney();
+        
     }
 }

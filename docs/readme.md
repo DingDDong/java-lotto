@@ -4,10 +4,11 @@
 - [x] "구입 금액을 입력해 주세요." 메세지 출력 후 입력 받는 기능 - inputMoney
   - [x] (e) 숫자가 아니면 예외처리 - validateMoneyNumber
   - [x] (e) 1000의 배수가 아니면 예외처리 - validateMoneyMultipleOfThousand
-  - [ ] (e) 빈 값이면 예외처리 - validateMoneyEmpty
-  - [x] (e) 음수 예외처리 - validateMoneyNegativeNumber
+  - [x] (e) 빈 값이면 예외처리 - validateMoneyNumber
+  - [x] (e) 음수 예외처리 - validateMoneyNumber
 
-- [ ] "n개를 구매했습니다." 출력하는 기능- outputLottoPurchasedAmount
+- [ ] 구매가능한 로또의 갯수를 반환해주는 기능 - calculateLottoAmount
+- [x] "n개를 구매했습니다." 출력하는 기능- outputPurchasedLottoAmount
 
 - [ ] 로또 번호와 관련된 기능 - Lotto
   - [ ] 로또 번호를 생성하는 기능 - makeLottoNumber
