@@ -5,7 +5,17 @@ import lotto.util.ExceptionMessage;
 
 public class MoneyValidator {
     public void validateMoney(String money){
+        validateMoneyNumber(money);
         validateMoneyMultipleOfThousand(money);
+    }
+
+    private void validateMoneyNumber(String money){
+        try{
+            Integer.parseInt(money);
+        }
+        catch (NumberFormatException e){
+            throw new IllegalArgumentException(ExceptionMessage.INVALID_MONEY_NUMBER.getMessage());
+        }
     }
 
     private void validateMoneyMultipleOfThousand(String money){
