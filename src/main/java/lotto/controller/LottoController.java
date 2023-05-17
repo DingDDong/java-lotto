@@ -1,5 +1,7 @@
 package lotto.controller;
 
+import lotto.model.Lotto;
+import lotto.model.LottoStore;
 import lotto.view.InputView;
 import lotto.view.OutputView;
 
@@ -8,6 +10,7 @@ public class LottoController {
     OutputView outputView = new OutputView();
     public void play(){
         int money = inputView.inputMoney();
-        
+        LottoStore lottoStore = new LottoStore(money);
+        outputView.outputPurchasedLottoAmount(lottoStore.getLottoAmount());
     }
 }
