@@ -1,8 +1,8 @@
 # 기능 목록 구현
 - [ ] lotto 전체적인 진행을 다루는 클래스 - LottoController
 
-- [ ] "구입 금액을 입력해 주세요." 메세지 출력 후 입력 받는 기능 - inputMoney
-  - [ ] (e) 1000의 배수가 아니면 예외처리 - validateMoneyMultipleOfThousand
+- [x] "구입 금액을 입력해 주세요." 메세지 출력 후 입력 받는 기능 - inputMoney
+  - [x] (e) 1000의 배수가 아니면 예외처리 - validateMoneyMultipleOfThousand
   - [ ] (e) 숫자가 아니면 예외처리 - validateMoneyNumber
   - [ ] (e) 빈 값이면 예외처리 - validateMoneyEmpty
   - [ ] (e) 음수 예외처리 - validateMoneyNegativeNumber

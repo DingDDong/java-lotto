@@ -1,6 +1,7 @@
 package lotto.view;
 
 import camp.nextstep.edu.missionutils.Console;
+import lotto.validator.MoneyValidator;
 
 public class InputView {
     private enum ConsoleMessage{
@@ -17,6 +18,7 @@ public class InputView {
     public int inputMoney(){
         System.out.println(ConsoleMessage.INPUT_MONEY.message);
         String money = Console.readLine();
+        new MoneyValidator().validateMoney(money);
         return Integer.parseInt(money);
     }
 }
