@@ -12,7 +12,7 @@
 
 - [ ] 로또 번호와 관련된 기능 - Lotto
   - [x] 로또 번호를 생성하는 기능 - makeLottoNumber
-  - [ ] 생성된 로또 번호를 오름차순으로 정렬하는 기능 - sortLottoNumber
+  - [x] 생성된 로또 번호를 오름차순으로 정렬하는 기능 - Collections.sort
   - [ ] 여러개의 로또를 List에 저장하는 기능 
   - [ ] 로또번호를 출력하는 기능 - outputLottoNumber
 
