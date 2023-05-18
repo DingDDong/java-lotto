@@ -1,9 +1,16 @@
 package lotto.model;
 
-import static lotto.util.Constants.LOTTO_PRICE;
+import camp.nextstep.edu.missionutils.Randoms;
+
+import java.sql.Array;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+import static lotto.util.Constants.*;
+
 public class LottoStore {
     private final int LottoAmount;
-
     public LottoStore(int money){
         this.LottoAmount = calculateLottoAmount(money);
     }
@@ -15,4 +22,5 @@ public class LottoStore {
     public int getLottoAmount(){
         return LottoAmount;
     }
+
 }
