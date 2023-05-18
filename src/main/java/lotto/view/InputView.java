@@ -2,6 +2,7 @@ package lotto.view;
 
 import camp.nextstep.edu.missionutils.Console;
 import lotto.validator.MoneyValidator;
+import java.util.List;
 
 
 public class InputView {
@@ -21,5 +22,11 @@ public class InputView {
         String money = Console.readLine();
         new MoneyValidator().validateMoney(money);
         return Integer.parseInt(money);
+    }
+
+    public String inputWinningNumber(){
+        System.out.println(ConsoleMessage.INPUT_WINNING_NUMBER.message);
+        String winningNumber = Console.readLine();
+        return winningNumber;
     }
 }

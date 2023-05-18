@@ -14,10 +14,10 @@
   - [x] 로또 번호를 생성하는 기능 - makeLottoNumber
   - [x] 생성된 로또 번호를 오름차순으로 정렬하는 기능 - Collections.sort
   - [x] 여러개의 로또를 List에 저장하는 기능 
-  - [ ] 로또번호를 출력하는 기능 - outputLottoNumber
+  - [x] 로또번호를 출력하는 기능 - outputLottoNumber
 
 
-- [ ] 당첨 번호를 입력받는 기능 - inputWinningNumber
+- [x] 당첨 번호를 입력받는 기능 - inputWinningNumber
   - [ ] 당첨 번호를 (,)를 기준으로 구분하는 기능 - splitNumberByCommas
     - [ ] 구분자가 (,)가 아니면 예외처리 -validateSeparatorCommas
     - [ ] 구분된 숫자가 6개가 아니면 예외처리 - validateWinningNumberSize
