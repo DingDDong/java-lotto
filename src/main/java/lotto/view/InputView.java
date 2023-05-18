@@ -2,6 +2,7 @@ package lotto.view;
 
 import camp.nextstep.edu.missionutils.Console;
 import lotto.validator.MoneyValidator;
+import lotto.validator.WinningNumberValidator;
 
 import java.util.stream.Collectors;
 import java.util.List;
@@ -28,8 +29,10 @@ public class InputView {
     }
 
     public List<Integer> inputWinningNumber(){
+        WinningNumberValidator winningNumberValidator = new WinningNumberValidator();
         System.out.println(ConsoleMessage.INPUT_WINNING_NUMBER.message);
         String winningNumber = Console.readLine();
+        winningNumberValidator.validateDelimiter(winningNumber);
         return splitNumberByCommas(winningNumber);
     }
 
