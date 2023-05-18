@@ -2,7 +2,10 @@ package lotto.view;
 
 import camp.nextstep.edu.missionutils.Console;
 import lotto.validator.MoneyValidator;
+
+import java.util.stream.Collectors;
 import java.util.List;
+import java.util.Arrays;
 
 
 public class InputView {
@@ -24,9 +27,17 @@ public class InputView {
         return Integer.parseInt(money);
     }
 
-    public String inputWinningNumber(){
+    public List<Integer> inputWinningNumber(){
         System.out.println(ConsoleMessage.INPUT_WINNING_NUMBER.message);
         String winningNumber = Console.readLine();
+        return splitNumberByCommas(winningNumber);
+    }
+
+    private List<Integer> splitNumberByCommas(String inputNumber){
+        List<Integer> winningNumber = Arrays.stream(inputNumber.split(","))
+                .map(String::trim)
+                .map(Integer::valueOf)
+                .collect(Collectors.toList());
         return winningNumber;
     }
 }
