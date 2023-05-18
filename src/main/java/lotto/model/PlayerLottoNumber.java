@@ -11,13 +11,16 @@ import static lotto.util.Constants.*;
 public class PlayerLottoNumber {
     private final List<Integer> playerLottoNumber;
 
-    public PlayerLottoNumber() {
+    private PlayerLottoNumber() {
         this.playerLottoNumber = makeLottoNumber();
     }
 
+    public static PlayerLottoNumber autoMakeLottoNumber(){
+        return new PlayerLottoNumber();
+    }
+
     private List<Integer> makeLottoNumber() {
-        List<Integer> lottoNumber = new ArrayList<>();
-        lottoNumber = Randoms.pickUniqueNumbersInRange(LOTTO_RANGE_MIN, LOTTO_RANGE_MAX, LOTTO_NUMBER_COUNT);
+        List<Integer> lottoNumber = Randoms.pickUniqueNumbersInRange(LOTTO_RANGE_MIN, LOTTO_RANGE_MAX, LOTTO_NUMBER_COUNT);
         Collections.sort(lottoNumber);
         return lottoNumber;
     }
