@@ -15,4 +15,8 @@ public class PlayerLottoNumbers {
     private List<PlayerLottoNumber> makeLottoNumbers(int lottoAmount) {
         return Stream.generate(PlayerLottoNumber::autoMakeLottoNumber).limit(lottoAmount).collect(Collectors.toList());
     }
+
+    public List<PlayerLottoNumber> getPlayerLottoNumbers(){
+        return playerLottoNumbers;
+    }
 }

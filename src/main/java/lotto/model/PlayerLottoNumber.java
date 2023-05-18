@@ -15,7 +15,7 @@ public class PlayerLottoNumber {
         this.playerLottoNumber = makeLottoNumber();
     }
 
-    public static PlayerLottoNumber autoMakeLottoNumber(){
+    public static PlayerLottoNumber autoMakeLottoNumber() {
         return new PlayerLottoNumber();
     }
 
@@ -23,5 +23,10 @@ public class PlayerLottoNumber {
         List<Integer> lottoNumber = Randoms.pickUniqueNumbersInRange(LOTTO_RANGE_MIN, LOTTO_RANGE_MAX, LOTTO_NUMBER_COUNT);
         Collections.sort(lottoNumber);
         return lottoNumber;
+    }
+
+    @Override
+    public String toString() {
+        return playerLottoNumber.toString();
     }
 }
