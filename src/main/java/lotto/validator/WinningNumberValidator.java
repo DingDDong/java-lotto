@@ -45,7 +45,7 @@ public class WinningNumberValidator {
                     .collect(Collectors.toList());
             return listWinningNumber;
         }
-        catch (IllegalArgumentException e){
+        catch (NumberFormatException e){
             throw new IllegalArgumentException(ExceptionMessage.INVALID_NUMERIC.getMessage());
         }
     }
