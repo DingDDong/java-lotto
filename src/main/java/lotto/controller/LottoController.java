@@ -16,6 +16,6 @@ public class LottoController {
         outputView.outputPurchasedLottoAmount(lottoStore.getLottoAmount());
         PlayerLottoNumbers playerLottoNumbers = new PlayerLottoNumbers(lottoStore.getLottoAmount());
         outputView.outputPlayerLottoNumbers(playerLottoNumbers);
-        inputView.inputWinningNumber();
+        Lotto winningNumber = new Lotto(inputView.inputWinningNumber());
     }
 }
