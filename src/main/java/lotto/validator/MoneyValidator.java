@@ -7,6 +7,7 @@ public class MoneyValidator {
     public void validateMoney(String money){
         validateMoneyNumber(money);
         validateMoneyMultipleOfThousand(money);
+        validateMoneyZero(money);
     }
 
     private void validateMoneyNumber(String money){
@@ -20,6 +21,12 @@ public class MoneyValidator {
 
     private void validateMoneyMultipleOfThousand(String money){
         if(Integer.parseInt(money) % LOTTO_PRICE != 0){
+            throw new IllegalArgumentException(ExceptionMessage.INVALID_MONEY_PRICE.getMessage());
+        }
+    }
+
+    private void validateMoneyZero(String money){
+        if ((Integer.parseInt(money)) == 0) {
             throw new IllegalArgumentException(ExceptionMessage.INVALID_MONEY_PRICE.getMessage());
         }
     }

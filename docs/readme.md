@@ -6,6 +6,7 @@
   - [x] (e) 1000의 배수가 아니면 예외처리 - validateMoneyMultipleOfThousand
   - [x] (e) 빈 값이면 예외처리 - validateMoneyNumber
   - [x] (e) 음수 예외처리 - validateMoneyNumber
+  - [x] (e) 받은 금액이 0원일때 예외처리 - validateMoneyZero
 
 - [x] 구매가능한 로또의 갯수를 반환해주는 기능 - calculateLottoAmount
 - [x] "n개를 구매했습니다." 출력하는 기능- outputPurchasedLottoAmount
@@ -19,7 +20,7 @@
 
 - [x] 당첨 번호를 입력받는 기능 - inputWinningNumber
   - [x] 당첨 번호를 (,)를 기준으로 구분하는 기능 - splitNumberByCommas
-    - [x] 구분자가 없으면 예외처리 -validateDelimiter
+    - [x] (e)구분자가 없으면 예외처리 -validateDelimiter
   - [x] (e)구분된 숫자가 6개가 아니면 예외처리 - validateSize
   - [x] (e) 중복이 있으면 예외처리 - validateWinningNumberDistinct
   - [x] (e) 범위를 벗어나면 예외처리  - validateWinningNumberRange
