@@ -21,8 +21,8 @@
   - [x] 당첨 번호를 (,)를 기준으로 구분하는 기능 - splitNumberByCommas
     - [x] 구분자가 없으면 예외처리 -validateDelimiter
   - [x] (e)구분된 숫자가 6개가 아니면 예외처리 - validateSize
-  - [ ] (e) 중복이 있으면 예외처리 - validateWinningNumberDistinct
-  - [ ] (e) 범위를 벗어나면 예외처리  - validateWinningNumberRange
+  - [x] (e) 중복이 있으면 예외처리 - validateWinningNumberDistinct
+  - [x] (e) 범위를 벗어나면 예외처리  - validateWinningNumberRange
   - [ ] (e) 숫자가 아니면 예외처리 - validateWinningNumberNumber
   
 - [ ] 보너스 번호를 입력받는 기능 - inputBonusNumber 
