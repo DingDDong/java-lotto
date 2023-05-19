@@ -26,7 +26,7 @@
   - [x] (e) 범위를 벗어나면 예외처리  - validateWinningNumberRange
   - [x] (e) 숫자가 아니면 예외처리 - validateWinningNumberNumber
   
-- [ ] 보너스 번호를 입력받는 기능 - inputBonusNumber 
+- [x] 보너스 번호를 입력받는 기능 - inputBonusNumber 
   - [ ] (e) 중복이 있으면 예외처피 - validateBonusNumberDistinct
   - [ ] (e) 숫자가 아니면 예외처리 - validateBonusNumberNumber
   - [ ] (e) 범위를 벗어났으면 예외처리 - validateBonusNumberRange

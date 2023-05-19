@@ -1,5 +1,6 @@
 package lotto.controller;
 
+import lotto.model.Bonus;
 import lotto.model.Lotto;
 import lotto.model.LottoStore;
 import lotto.model.PlayerLottoNumber;
@@ -13,6 +14,7 @@ public class LottoController {
     public void play(){
         PlayerLottoNumbers playerLottoNumbers = buyLotto();
         Lotto winningNumber = new Lotto(inputView.inputWinningNumber());
+        Bonus BonusNumber = new Bonus(inputView.inputBonusNumber());
     }
 
     private PlayerLottoNumbers buyLotto(){

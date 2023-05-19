@@ -34,4 +34,10 @@ public class InputView {
         String winningNumber = Console.readLine();
         return winningNumberValidator.validateWinningNumber(winningNumber);
     }
+
+    public String inputBonusNumber(){
+        System.out.println(ConsoleMessage.INPUT_BONUS_NUMBER.message);
+        String BonusNumber = Console.readLine();
+        return BonusNumber;
+    }
 }
