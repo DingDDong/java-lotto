@@ -28,8 +28,8 @@
   
 - [x] 보너스 번호를 입력받는 기능 - inputBonusNumber 
   - [ ] (e) 중복이 있으면 예외처피 - validateBonusNumberDistinct
-  - [x] (e) 숫자가 아니면 예외처리 - validateBonusNumberNumber
-  - [ ] (e) 범위를 벗어났으면 예외처리 - validateBonusNumberRange
+  - [x] (e) 숫자가 아니면 예외처리 - validateBonusNumberNumeric
+  - [x] (e) 범위를 벗어났으면 예외처리 - validateBonusNumberRange
 
 - [ ] 로또 번호와 당첨 번호 등수 확인 기능 - matchNumber
 

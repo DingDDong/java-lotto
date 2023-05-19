@@ -3,7 +3,7 @@ package lotto.model;
 public class Bonus {
     private final int bonusNumber;
 
-    private Bonus(int bonusNumber){
+    public Bonus(int bonusNumber){
         this.bonusNumber = bonusNumber;
     }
 

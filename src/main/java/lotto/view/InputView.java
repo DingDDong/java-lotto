@@ -5,9 +5,7 @@ import lotto.validator.BonusValidator;
 import lotto.validator.MoneyValidator;
 import lotto.validator.WinningNumberValidator;
 
-import java.util.stream.Collectors;
 import java.util.List;
-import java.util.Arrays;
 
 
 public class InputView {
@@ -40,6 +38,6 @@ public class InputView {
         BonusValidator bonusValidator = new BonusValidator();
         System.out.println(ConsoleMessage.INPUT_BONUS_NUMBER.message);
         String bonusNumber = Console.readLine();
-        return bonusValidator.validatebonus(bonusNumber);
+        return bonusValidator.validateBonus(bonusNumber);
     }
 }
