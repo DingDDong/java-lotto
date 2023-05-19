@@ -15,14 +15,8 @@ public class Lotto {
     }
 
     private void validate(List<Integer> numbers) {
-        try{
             validateSize(numbers);
             validateDuplication(numbers);
-            validateRange(numbers);
-        }
-        catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
-        }
     }
 
     private void validateSize(List<Integer> numbers){
@@ -34,12 +28,6 @@ public class Lotto {
     private void validateDuplication(List<Integer> numbers){
         if (numbers.stream().distinct().count() != LOTTO_NUMBER_COUNT){
             throw new IllegalArgumentException(ExceptionMessage.DUPLICATE_LOTTO_NUMBER.getMessage());
-        }
-    }
-
-    private void validateRange(List<Integer> numbers){
-        if (numbers.stream().anyMatch(number -> number > LOTTO_RANGE_MAX || number < LOTTO_RANGE_MIN)){
-            throw new IllegalArgumentException(ExceptionMessage.INVALID_NUMBER_RANGE.getMessage());
         }
     }
 }

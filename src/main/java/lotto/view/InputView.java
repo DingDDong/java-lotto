@@ -32,15 +32,6 @@ public class InputView {
         WinningNumberValidator winningNumberValidator = new WinningNumberValidator();
         System.out.println(ConsoleMessage.INPUT_WINNING_NUMBER.message);
         String winningNumber = Console.readLine();
-        winningNumberValidator.validateDelimiter(winningNumber);
-        return splitNumberByCommas(winningNumber);
-    }
-
-    private List<Integer> splitNumberByCommas(String inputNumber){
-        List<Integer> winningNumber = Arrays.stream(inputNumber.split(","))
-                .map(String::trim)
-                .map(Integer::valueOf)
-                .collect(Collectors.toList());
-        return winningNumber;
+        return winningNumberValidator.validateWinningNumber(winningNumber);
     }
 }

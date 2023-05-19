@@ -14,7 +14,7 @@ public class MoneyValidator {
             Integer.parseInt(money);
         }
         catch (NumberFormatException e){
-            throw new IllegalArgumentException(ExceptionMessage.INVALID_MONEY_NUMBER.getMessage());
+            throw new IllegalArgumentException(ExceptionMessage.INVALID_NUMERIC.getMessage());
         }
     }
 

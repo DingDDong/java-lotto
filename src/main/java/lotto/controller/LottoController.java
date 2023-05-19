@@ -11,11 +11,15 @@ public class LottoController {
     InputView inputView = new InputView();
     OutputView outputView = new OutputView();
     public void play(){
-        int money = inputView.inputMoney();
-        LottoStore lottoStore = new LottoStore(money);
+        PlayerLottoNumbers playerLottoNumbers = buyLotto();
+        Lotto winningNumber = new Lotto(inputView.inputWinningNumber());
+    }
+
+    private PlayerLottoNumbers buyLotto(){
+        LottoStore lottoStore = new LottoStore(inputView.inputMoney());
         outputView.outputPurchasedLottoAmount(lottoStore.getLottoAmount());
         PlayerLottoNumbers playerLottoNumbers = new PlayerLottoNumbers(lottoStore.getLottoAmount());
         outputView.outputPlayerLottoNumbers(playerLottoNumbers);
-        Lotto winningNumber = new Lotto(inputView.inputWinningNumber());
+        return playerLottoNumbers;
     }
 }
