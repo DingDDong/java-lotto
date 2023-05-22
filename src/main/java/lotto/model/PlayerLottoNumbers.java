@@ -1,6 +1,5 @@
 package lotto.model;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -13,7 +12,9 @@ public class PlayerLottoNumbers {
     }
 
     private List<PlayerLottoNumber> makeLottoNumbers(int lottoAmount) {
-        return Stream.generate(PlayerLottoNumber::autoMakeLottoNumber).limit(lottoAmount).collect(Collectors.toList());
+        return Stream.generate(PlayerLottoNumber::autoMakeLottoNumber)
+                .limit(lottoAmount)
+                .collect(Collectors.toList());
     }
 
     public List<PlayerLottoNumber> getPlayerLottoNumbers(){
