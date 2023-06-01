@@ -28,4 +28,8 @@ public class PlayerLottoNumber {
     public String toString() {
         return playerLottoNumber.toString();
     }
+
+    public List<Integer> getPlayerLottoNumber() {
+        return playerLottoNumber;
+    }
 }

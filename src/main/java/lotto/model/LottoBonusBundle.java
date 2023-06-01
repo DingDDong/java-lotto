@@ -2,6 +2,8 @@ package lotto.model;
 
 import lotto.util.ExceptionMessage;
 
+import java.util.List;
+
 public class LottoBonusBundle {
     private final Lotto winningNumber;
     private final Bonus bonusNumber;
@@ -16,5 +18,13 @@ public class LottoBonusBundle {
         if (winningNumber.contains(bonusNumber.getBonusNumber())) {
             throw new IllegalArgumentException(ExceptionMessage.DUPLICATE_LOTTO_BONUS.getMessage());
         }
+    }
+
+    public List<Integer> getWinningNumber() {
+        return winningNumber.getNumbers();
+    }
+
+    public int getBonusNumber() {
+        return bonusNumber.getBonusNumber();
     }
 }

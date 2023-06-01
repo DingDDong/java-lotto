@@ -10,9 +10,8 @@ public class LottoController {
 
     public void play() {
         PlayerLottoNumbers playerLottoNumbers = buyLotto();
-        Lotto winningNumber = new Lotto(inputView.inputWinningNumber());
-        Bonus bonusNumber = new Bonus(inputView.inputBonusNumber());
-        LottoBonusBundle lottoBonusBundle = new LottoBonusBundle(winningNumber, bonusNumber);
+        LottoBonusBundle lottoBonusBundle = receiveWinningNumber();
+        makeResult(playerLottoNumbers, lottoBonusBundle);
     }
 
     private PlayerLottoNumbers buyLotto() {
@@ -21,5 +20,15 @@ public class LottoController {
         PlayerLottoNumbers playerLottoNumbers = new PlayerLottoNumbers(lottoAmount.getLottoAmount());
         outputView.outputPlayerLottoNumbers(playerLottoNumbers);
         return playerLottoNumbers;
+    }
+
+    private LottoBonusBundle receiveWinningNumber() {
+        Lotto winningNumber = new Lotto(inputView.inputWinningNumber());
+        Bonus bonusNumber = new Bonus(inputView.inputBonusNumber());
+        return new LottoBonusBundle(winningNumber, bonusNumber);
+    }
+
+    private void makeResult(PlayerLottoNumbers playerLottoNumbers, LottoBonusBundle lottoBonusBundle) {
+        Result matchResult = new Result(playerLottoNumbers, lottoBonusBundle);
     }
 }
