@@ -30,5 +30,6 @@ public class LottoController {
 
     private void makeResult(PlayerLottoNumbers playerLottoNumbers, LottoBonusBundle lottoBonusBundle) {
         Result matchResult = new Result(playerLottoNumbers, lottoBonusBundle);
+        outputView.outputResult(matchResult);
     }
 }

@@ -1,9 +1,8 @@
 package lotto.model;
 
-import java.util.ArrayList;
-import java.util.EnumMap;
-import java.util.List;
-import java.util.Map;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class Result {
     final private LottoBonusBundle lottoBonusBundle;
@@ -14,6 +13,11 @@ public class Result {
         this.lottoBonusBundle = lottoBonusBundle;
         this.playerLottoNumbers = playerLottoNumbers;
         calculateResult();
+        /*for (Map.Entry<Ranking, Integer> entry : rankingInfo.entrySet()) {
+            Ranking win = entry.getKey();
+            Integer prize = entry.getValue();
+            System.out.println(win + ": " + prize);
+        }*/
     }
 
     private void calculateResult() {
@@ -36,5 +40,27 @@ public class Result {
     private boolean hasBonusNumber(PlayerLottoNumber playerLottoNumber) {
         List<Integer> temporaryLottoNumber = playerLottoNumber.getPlayerLottoNumber();
         return temporaryLottoNumber.contains(lottoBonusBundle.getBonusNumber());
+    }
+
+    private int getRanking(Ranking ranking) {
+        return rankingInfo.getOrDefault(ranking, 0);
+    }
+
+    @Override
+    public String toString() {
+        DecimalFormat df = new DecimalFormat("###,###");
+        List<Ranking> ranks = Arrays.stream(Ranking.values())
+                .filter(rank -> rank != Ranking.NONE)
+                .sorted(Comparator.reverseOrder())
+                .collect(Collectors.toList());
+        StringBuilder result = new StringBuilder();
+        for (Ranking rank : ranks) {
+            result.append(
+                    String.format("%s (%s원) - %d개\n",
+                            rank.getMessage(),
+                            df.format(rank.getPrize()),
+                            getRanking(rank)));
+        }
+        return result.toString();
     }
 }

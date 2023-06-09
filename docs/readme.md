@@ -31,12 +31,12 @@
   - [x] (e) 숫자가 아니면 예외처리 - validateBonusNumberNumeric
   - [x] (e) 범위를 벗어났으면 예외처리 - validateBonusNumberRange
 
-- [ ] 로또 번호와 당첨 번호 등수 확인 기능 - matchResult
+- [x] 로또 번호와 당첨 번호 등수 확인 기능 - matchResult
   - [x] 로또 번호들에 당첨 번호가 몇개가 맞는지 확인하는 기능 - calculateMatchCount
   - [x] 보너스 번호를 가지고 있는지 확인하는 기능 - hasBonusNumber
-  - [ ] 맞은 갯수로 등수를 확인하는 기능
+  - [x] 맞은 갯수로 등수를 확인하는 기능
 
-- [ ] 통계를 출력하는 기능 - outputResult
+- [x] 통계를 출력하는 기능 - outputResult
 
 - [ ] 수익률 계산하는 기능 - calculateYield
   - [ ] 수익률은 소수점 둘째 자리에서 반올림한다.
