@@ -7,12 +7,13 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 import static lotto.util.Constants.LOTTO_PRICE;
+import static lotto.util.Constants.OUTPUT_REWARD_STATISTIC;
 
 public class Result {
     private final LottoBonusBundle lottoBonusBundle;
     private final PlayerLottoNumbers playerLottoNumbers;
     private final Map<Ranking, Integer> rankingInfo = new EnumMap<>(Ranking.class);
-    private BigDecimal reward = BigDecimal.ZERO;
+    private BigDecimal rewardStatistic = BigDecimal.ZERO;
 
     public Result(PlayerLottoNumbers playerLottoNumbers, LottoBonusBundle lottoBonusBundle) {
         this.lottoBonusBundle = lottoBonusBundle;
@@ -55,7 +56,7 @@ public class Result {
             playerMoney = playerMoney.add(new BigDecimal(String.valueOf(LOTTO_PRICE)));
             totalCashPrize = totalCashPrize.add(new BigDecimal(String.valueOf(ranking.getPrize())));
         }
-        reward = totalCashPrize.multiply(new BigDecimal(100)).divide(playerMoney, 1, RoundingMode.HALF_EVEN);
+        rewardStatistic = totalCashPrize.multiply(new BigDecimal(100)).divide(playerMoney, 1, RoundingMode.HALF_EVEN);
     }
 
     @Override
@@ -73,6 +74,7 @@ public class Result {
                             commas.format(rank.getPrize()),
                             getRanking(rank)));
         }
+        result.append(String.format(OUTPUT_REWARD_STATISTIC, rewardStatistic));
         return result.toString();
     }
 }
