@@ -38,7 +38,7 @@
 
 - [x] 통계를 출력하는 기능 - outputResult
 
-- [ ] 수익률 계산하는 기능 - calculateYield
+- [x] 수익률 계산하는 기능 - calculateYield
   - [ ] 수익률은 소수점 둘째 자리에서 반올림한다.
 
 - [ ] 수익률 출력하는 기능 - outputYield

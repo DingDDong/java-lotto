@@ -1,23 +1,24 @@
 package lotto.model;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.util.*;
 import java.util.stream.Collectors;
 
+import static lotto.util.Constants.LOTTO_PRICE;
+
 public class Result {
-    final private LottoBonusBundle lottoBonusBundle;
-    final private PlayerLottoNumbers playerLottoNumbers;
-    final private Map<Ranking, Integer> rankingInfo = new EnumMap<>(Ranking.class);
+    private final LottoBonusBundle lottoBonusBundle;
+    private final PlayerLottoNumbers playerLottoNumbers;
+    private final Map<Ranking, Integer> rankingInfo = new EnumMap<>(Ranking.class);
+    private BigDecimal reward = BigDecimal.ZERO;
 
     public Result(PlayerLottoNumbers playerLottoNumbers, LottoBonusBundle lottoBonusBundle) {
         this.lottoBonusBundle = lottoBonusBundle;
         this.playerLottoNumbers = playerLottoNumbers;
         calculateResult();
-        /*for (Map.Entry<Ranking, Integer> entry : rankingInfo.entrySet()) {
-            Ranking win = entry.getKey();
-            Integer prize = entry.getValue();
-            System.out.println(win + ": " + prize);
-        }*/
+        calculateReward();
     }
 
     private void calculateResult() {
@@ -46,9 +47,20 @@ public class Result {
         return rankingInfo.getOrDefault(ranking, 0);
     }
 
+    private void calculateReward() {
+        BigDecimal totalCashPrize = BigDecimal.ZERO;
+        BigDecimal playerMoney = BigDecimal.ZERO;
+        for (PlayerLottoNumber playerLottoNumber : playerLottoNumbers.getPlayerLottoNumbers()) {
+            Ranking ranking = Ranking.rankRanking(calculateMatchCount(playerLottoNumber), hasBonusNumber(playerLottoNumber));
+            playerMoney = playerMoney.add(new BigDecimal(String.valueOf(LOTTO_PRICE)));
+            totalCashPrize = totalCashPrize.add(new BigDecimal(String.valueOf(ranking.getPrize())));
+        }
+        reward = totalCashPrize.multiply(new BigDecimal(100)).divide(playerMoney, 1, RoundingMode.HALF_EVEN);
+    }
+
     @Override
     public String toString() {
-        DecimalFormat df = new DecimalFormat("###,###");
+        DecimalFormat commas = new DecimalFormat("###,###");
         List<Ranking> ranks = Arrays.stream(Ranking.values())
                 .filter(rank -> rank != Ranking.NONE)
                 .sorted(Comparator.reverseOrder())
@@ -58,7 +70,7 @@ public class Result {
             result.append(
                     String.format("%s (%s원) - %d개\n",
                             rank.getMessage(),
-                            df.format(rank.getPrize()),
+                            commas.format(rank.getPrize()),
                             getRanking(rank)));
         }
         return result.toString();

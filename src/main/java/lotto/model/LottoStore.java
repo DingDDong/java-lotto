@@ -4,8 +4,10 @@ import static lotto.util.Constants.LOTTO_PRICE;
 
 public class LottoStore {
     private final int lottoAmount;
+    private final int money;
 
     public LottoStore(int money) {
+        this.money = money;
         this.lottoAmount = calculateLottoAmount(money);
     }
 
@@ -17,4 +19,7 @@ public class LottoStore {
         return lottoAmount;
     }
 
+    public int getMoney() {
+        return money;
+    }
 }
