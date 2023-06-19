@@ -1,26 +1,28 @@
 package lotto.validator;
 
-import static lotto.util.Constants.LOTTO_PRICE;
 import lotto.util.ExceptionMessage;
 
+import static lotto.util.Constants.LOTTO_PRICE;
+
 public class MoneyValidator {
-    public void validateMoney(String money){
+    public void validateMoney(String money) {
         validateMoneyNumber(money);
         validateMoneyMultipleOfThousand(money);
         validateMoneyZero(money);
     }
 
-    private void validateMoneyNumber(String money){
-        try{
-            Integer.parseInt(money);
-        }
-        catch (NumberFormatException e){
+    public void validateMoneyNumber(String money) {
+        try {
+            if (Integer.parseInt(money) < 0) {
+                throw new IllegalArgumentException(ExceptionMessage.INVALID_NUMERIC.getMessage());
+            }
+        } catch (NumberFormatException e) {
             throw new IllegalArgumentException(ExceptionMessage.INVALID_NUMERIC.getMessage());
         }
     }
 
-    private void validateMoneyMultipleOfThousand(String money){
-        if(Integer.parseInt(money) % LOTTO_PRICE != 0){
+    private void validateMoneyMultipleOfThousand(String money) {
+        if (Integer.parseInt(money) % LOTTO_PRICE != 0) {
             throw new IllegalArgumentException(ExceptionMessage.INVALID_MONEY_PRICE.getMessage());
         }
     }
