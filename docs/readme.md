@@ -1,5 +1,5 @@
 # 기능 목록 구현
-- [ ] lotto 전체적인 진행을 다루는 클래스 - LottoController
+- [x] lotto 전체적인 진행을 다루는 클래스 - LottoController
 
 - [x] "구입 금액을 입력해 주세요." 메세지 출력 후 입력 받는 기능 - inputMoney
   - [x] (e) 숫자가 아니면 예외처리 - validateMoneyNumber
@@ -11,7 +11,7 @@
 - [x] 구매가능한 로또의 갯수를 반환해주는 기능 - calculateLottoAmount
 - [x] "n개를 구매했습니다." 출력하는 기능- outputPurchasedLottoAmount
 
-- [ ] 로또 번호와 관련된 기능 - Lotto
+- [x] 로또 번호와 관련된 기능 - Lotto
   - [x] 로또 번호를 생성하는 기능 - makeLottoNumber
   - [x] 생성된 로또 번호를 오름차순으로 정렬하는 기능 - Collections.sort
   - [x] 여러개의 로또를 List에 저장하는 기능
@@ -39,9 +39,9 @@
 - [x] 통계를 출력하는 기능 - outputResult
 
 - [x] 수익률 계산하는 기능 - calculateYield
-  - [ ] 수익률은 소수점 둘째 자리에서 반올림한다.
+  - [x] 수익률은 소수점 둘째 자리에서 반올림한다.
 
-- [ ] 수익률 출력하는 기능 - outputYield
+- [x] 수익률 출력하는 기능 - outputYield
 
 
  
