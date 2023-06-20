@@ -11,7 +11,7 @@ public class MoneyValidator {
         validateMoneyZero(money);
     }
 
-    public void validateMoneyNumber(String money) {
+    private void validateMoneyNumber(String money) {
         try {
             if (Integer.parseInt(money) < 0) {
                 throw new IllegalArgumentException(ExceptionMessage.INVALID_NUMERIC.getMessage());
