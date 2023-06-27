@@ -1,6 +1,9 @@
 package lotto.controller;
 
-import lotto.model.*;
+import lotto.model.LottoStore;
+import lotto.model.PlayerLottoNumbers;
+import lotto.model.Result;
+import lotto.model.WinningNumber;
 import lotto.view.InputView;
 import lotto.view.OutputView;
 
@@ -10,7 +13,7 @@ public class LottoController {
 
     public void play() {
         PlayerLottoNumbers playerLottoNumbers = buyLotto();
-        LottoBonusBundle lottoBonusBundle = receiveWinningNumber();
+        WinningNumber lottoBonusBundle = receiveWinningNumber();
         makeResult(playerLottoNumbers, lottoBonusBundle);
     }
 
@@ -22,14 +25,13 @@ public class LottoController {
         return playerLottoNumbers;
     }
 
-    private LottoBonusBundle receiveWinningNumber() {
-        Lotto winningNumber = new Lotto(inputView.inputWinningNumber());
-        Bonus bonusNumber = new Bonus(inputView.inputBonusNumber());
-        return new LottoBonusBundle(winningNumber, bonusNumber);
+    private WinningNumber receiveWinningNumber() {
+        WinningNumber winningNumber = new WinningNumber(inputView.inputWinningNumber(), inputView.inputBonusNumber());
+        return winningNumber;
     }
 
-    private void makeResult(PlayerLottoNumbers playerLottoNumbers, LottoBonusBundle lottoBonusBundle) {
-        Result matchResult = new Result(playerLottoNumbers, lottoBonusBundle);
+    private void makeResult(PlayerLottoNumbers playerLottoNumbers, WinningNumber winningNumber) {
+        Result matchResult = new Result(playerLottoNumbers, winningNumber);
         outputView.outputResult(matchResult);
     }
 }

@@ -1,11 +1,12 @@
 package lotto.view;
 
-import lotto.model.PlayerLottoNumber;
 import lotto.model.PlayerLottoNumbers;
 import lotto.model.Result;
 
+import java.util.List;
+
 public class OutputView {
-    private final String LOTTO_PURCHASED_AMOUNT = "%d개를 구매하셨습니다.\n.";
+    private final String LOTTO_PURCHASED_AMOUNT = "%d개를 구매하셨습니다.\n";
     private final String WINNING_STATISTICS = "당첨 통계\n---\n";
 
     public void outputPurchasedLottoAmount(int lottoAmount) {
@@ -13,8 +14,8 @@ public class OutputView {
     }
 
     public void outputPlayerLottoNumbers(PlayerLottoNumbers playerLottoNumbers) {
-        for (PlayerLottoNumber playLottoNumber : playerLottoNumbers.getPlayerLottoNumbers()) {
-            System.out.println(playLottoNumber.toString());
+        for (List<Integer> lotto : playerLottoNumbers.getPlayerLottoNumbers()) {
+            System.out.println(lotto.toString());
         }
     }
 

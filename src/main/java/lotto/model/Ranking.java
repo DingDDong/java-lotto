@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public enum Ranking {
-    FIRST(6, List.of(true, false), 2_000_000_000, "6개 일치"),
+    FIRST(6, List.of(false), 2_000_000_000, "6개 일치"),
     SECOND(5, List.of(true), 30_000_000, "5개 일치, 보너스 볼 일치"),
     THIRD(5, List.of(false), 1_500_000, "5개 일치"),
     FOURTH(4, List.of(true, false), 50_000, "4개 일치"),

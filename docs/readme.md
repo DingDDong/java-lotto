@@ -1,5 +1,5 @@
 # 기능 목록 구현
-- [x] lotto 전체적인 진행을 다루는 클래스 - LottoController
+- [x] winningNumber 전체적인 진행을 다루는 클래스 - LottoController
 
 - [x] "구입 금액을 입력해 주세요." 메세지 출력 후 입력 받는 기능 - inputMoney
   - [x] (e) 숫자가 아니면 예외처리 - validateMoneyNumber

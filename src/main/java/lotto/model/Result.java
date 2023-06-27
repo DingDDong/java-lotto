@@ -10,21 +10,21 @@ import static lotto.util.Constants.LOTTO_PRICE;
 import static lotto.util.Constants.OUTPUT_REWARD_STATISTIC;
 
 public class Result {
-    private final LottoBonusBundle lottoBonusBundle;
+    private final WinningNumber winningNumber;
     private final PlayerLottoNumbers playerLottoNumbers;
     private final Map<Ranking, Integer> rankingInfo = new EnumMap<>(Ranking.class);
     private BigDecimal rewardStatistic = BigDecimal.ZERO;
 
-    public Result(PlayerLottoNumbers playerLottoNumbers, LottoBonusBundle lottoBonusBundle) {
-        this.lottoBonusBundle = lottoBonusBundle;
+    public Result(PlayerLottoNumbers playerLottoNumbers, WinningNumber winningNumber) {
+        this.winningNumber = winningNumber;
         this.playerLottoNumbers = playerLottoNumbers;
         calculateResult();
         calculateReward();
     }
 
     private void calculateResult() {
-        for (PlayerLottoNumber playerLottoNumber : playerLottoNumbers.getPlayerLottoNumbers()) {
-            Ranking ranking = Ranking.rankRanking(calculateMatchCount(playerLottoNumber), hasBonusNumber(playerLottoNumber));
+        for (List<Integer> lotto : playerLottoNumbers.getPlayerLottoNumbers()) {
+            Ranking ranking = Ranking.rankRanking(calculateMatchCount(lotto), hasBonusNumber(lotto));
             updateRanking(ranking);
         }
     }
@@ -33,15 +33,15 @@ public class Result {
         rankingInfo.put(ranking, rankingInfo.getOrDefault(ranking, 0) + 1);
     }
 
-    private int calculateMatchCount(PlayerLottoNumber playerLottoNumber) {
-        List<Integer> temporaryLottoNumber = new ArrayList<>(playerLottoNumber.getPlayerLottoNumber());
-        temporaryLottoNumber.retainAll(lottoBonusBundle.getWinningNumber());
+    private int calculateMatchCount(List<Integer> lotto) {
+        List<Integer> temporaryLottoNumber = lotto;
+        temporaryLottoNumber.retainAll(winningNumber.getWinningNumber());
         return temporaryLottoNumber.size();
     }
 
-    private boolean hasBonusNumber(PlayerLottoNumber playerLottoNumber) {
-        List<Integer> temporaryLottoNumber = playerLottoNumber.getPlayerLottoNumber();
-        return temporaryLottoNumber.contains(lottoBonusBundle.getBonusNumber());
+    private boolean hasBonusNumber(List<Integer> lotto) {
+        List<Integer> temporaryLottoNumber = lotto;
+        return temporaryLottoNumber.contains(winningNumber.getBonusNumber());
     }
 
     private int getRanking(Ranking ranking) {
@@ -51,8 +51,8 @@ public class Result {
     private void calculateReward() {
         BigDecimal totalCashPrize = BigDecimal.ZERO;
         BigDecimal playerMoney = BigDecimal.ZERO;
-        for (PlayerLottoNumber playerLottoNumber : playerLottoNumbers.getPlayerLottoNumbers()) {
-            Ranking ranking = Ranking.rankRanking(calculateMatchCount(playerLottoNumber), hasBonusNumber(playerLottoNumber));
+        for (List<Integer> lotto : playerLottoNumbers.getPlayerLottoNumbers()) {
+            Ranking ranking = Ranking.rankRanking(calculateMatchCount(lotto), hasBonusNumber(lotto));
             playerMoney = playerMoney.add(new BigDecimal(String.valueOf(LOTTO_PRICE)));
             totalCashPrize = totalCashPrize.add(new BigDecimal(String.valueOf(ranking.getPrize())));
         }
