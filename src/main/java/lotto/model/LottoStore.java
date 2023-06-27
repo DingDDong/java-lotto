@@ -21,6 +21,7 @@ public class LottoStore {
     private static List<Integer> makeLottoNumber() {
         List<Integer> lottoNumber = Randoms.pickUniqueNumbersInRange(LOTTO_RANGE_MIN, LOTTO_RANGE_MAX, LOTTO_NUMBER_COUNT);
         Collections.sort(lottoNumber);
+        new Lotto(lottoNumber);
         return lottoNumber;
     }
 
