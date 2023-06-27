@@ -1,4 +1,6 @@
-package lotto;
+package lotto.model;
+
+import lotto.util.ExceptionMessage;
 
 import java.util.List;
 
@@ -10,11 +12,9 @@ public class Lotto {
         this.numbers = numbers;
     }
 
-    private void validate(List<Integer> numbers) {
+    private static void validate(List<Integer> numbers) {
         if (numbers.size() != 6) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(ExceptionMessage.INVALID_LOTTO_SIZE.getMessage());
         }
     }
-
-    // TODO: 추가 기능 구현
 }
